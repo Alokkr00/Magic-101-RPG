@@ -1,0 +1,234 @@
+/* style.css */
+
+/* Base Styles */
+body {
+  font-family: 'MedievalSharp', cursive, sans-serif;
+  background-color: #D2B48C; /* Light Tan Background */
+  color: #8B4513; /* Dark brown text */
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Game Container */
+#game-container {
+  position: relative;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  margin: 50px auto;
+  z-index: 5;
+}
+
+
+/* Character Styling */
+.character {
+  width: 100px;
+  height: 150px;
+  background-color: #8B4513;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.character img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.character.idle img {
+  transform: scale(1);
+}
+
+
+.character.active img {
+  transform: scale(1.1);
+}
+
+#player1-character {
+  left: 10px;
+}
+
+#player2-character {
+  right: 10px;
+}
+
+.character.idle {
+  animation: idle 2s infinite alternate;
+}
+
+@keyframes idle {
+  0% {
+      transform: translateY(-50%) scale(1);
+  }
+  100% {
+      transform: translateY(-50%) scale(1.1);
+  }
+}
+
+/* Character Attacking Animation */
+.character.attacking {
+  animation: attack 1s forwards;
+}
+
+@keyframes attack {
+  0% {
+      transform: translateY(-50%) scale(1);
+  }
+  50% {
+      transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+      transform: translateY(-50%) scale(1);
+  }
+}
+
+.character, .ball {
+  transform-origin: center center;
+}
+
+/* Spell Ball Styling */
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: throw-ball 2s forwards;
+}
+
+/* Spell Ball Throw Animation */
+@keyframes throw-ball {
+  0% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+  }
+  50% {
+      opacity: 1;
+      transform: scale(1.5) translateX(100px);
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0) translateX(200px);
+  }
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: throw-ball 2s forwards;
+  z-index: 10;  /* Ensure the balls are above the characters */
+}
+
+/* Spell Ball Throw Animation (Balls move towards each other) */
+@keyframes throw-ball {
+  0% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+  }
+  50% {
+      opacity: 1;
+      transform: scale(1) translateX(-50vw); /* Move toward the center of the screen */
+  }
+  100% {
+      opacity: 0;
+      transform: scale(0) translateX(-100vw); /* End up at the other side */
+  }
+}
+
+@keyframes throw-ball-to-player2 {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(90vw); /* Move to Player 2's side */
+  }
+}
+
+@keyframes throw-ball-to-player1 {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-90vw); /* Move to Player 1's side */
+  }
+}
+
+/* Player 1's Ball (Fireball - Red) */
+.ball.player1 {
+  background-color: #ff5733;
+  left: 10px; /* Start from Player 1 */
+  top: 50%;
+}
+
+/* Player 2's Ball (Waterball - Blue) */
+.ball.player2 {
+  background-color: #33aaff;
+  right: 10px; /* Start from Player 2 */
+  top: 50%;
+}
+
+/* Damage Animation */
+.damage {
+  animation: damage 0.3s ease-in-out;
+}
+
+@keyframes damage {
+  0% {
+      transform: scale(1);
+      opacity: 1;
+  }
+  50% {
+      transform: scale(1.2);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* UI Elements */
+button {
+  font-size: 18px;
+  padding: 10px;
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #A0522D;
+}
+
+select, label {
+  margin: 10px 0;
+}
+
+h2 {
+  color: #8B4513;
+}
+
+.output {
+  color: #8B4513;
+  font-weight: bold;
+}
+
+/* Player Sections */
+.player-section {
+  display: inline-block;
+  width: 45%;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}

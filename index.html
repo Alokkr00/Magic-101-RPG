@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 101 RPG</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Magic 101: Spellcrafting</h1>
+
+        <!-- Player 1 Character -->
+        <div id="player1-character" class="character idle">
+            <img src="images/player1.png" alt="Player 1" id="player1-image">
+        </div>
+
+        <!-- Player 1's Spell Section -->
+        <div class="player-section" id="player1-section">
+            <h2>Player 1's Spell</h2>
+            <p>HP: <span id="player1-hp">100</span></p>
+
+            <!-- Spell creation controls -->
+            <label for="approach1">Approach:</label>
+            <select id="approach1">
+                <option value="Con">Conjure</option>
+                <option value="Man">Manipulate</option>
+                <option value="Res">Restore</option>
+                <option value="Trf">Transform</option>
+                <option value="Cha">Channel</option>
+            </select>
+
+            <label for="subject1">Subject:</label>
+            <select id="subject1">
+                <option value="phy">Physical</option>
+                <option value="ene">Energy</option>
+                <option value="min">Mind</option>
+                <option value="spa">Space</option>
+                <option value="voi">Void</option>
+            </select>
+
+            <label for="object1">Object:</label>
+            <select id="object1">
+                <option value="fir">Fire</option>
+                <option value="wat">Water</option>
+                <option value="air">Air</option>
+                <option value="ert">Earth</option>
+                <option value="met">Metal</option>
+            </select>
+
+            <label for="purpose1">Purpose:</label>
+            <select id="purpose1">
+                <option value="atk">Attack</option>
+                <option value="def">Defend</option>
+                <option value="heal">Heal</option>
+                <option value="mnd">Mend</option>
+                <option value="com">Combine</option>
+            </select>
+
+            <button id="createSpell1">Cast Spell</button>
+            <div id="output1" class="output"></div>
+        </div>
+
+        <!-- Player 2's Spell Section -->
+        <div class="player-section" id="player2-section">
+            <h2>Player 2's Spell</h2>
+            <p>HP: <span id="player2-hp">100</span></p>
+
+            <label for="approach2">Approach:</label>
+            <select id="approach2">
+                <option value="Con">Conjure</option>
+                <option value="Man">Manipulate</option>
+                <option value="Res">Restore</option>
+                <option value="Trf">Transform</option>
+                <option value="Cha">Channel</option>
+            </select>
+
+            <label for="subject2">Subject:</label>
+            <select id="subject2">
+                <option value="phy">Physical</option>
+                <option value="ene">Energy</option>
+                <option value="min">Mind</option>
+                <option value="spa">Space</option>
+                <option value="voi">Void</option>
+            </select>
+
+            <label for="object2">Object:</label>
+            <select id="object2">
+                <option value="fir">Fire</option>
+                <option value="wat">Water</option>
+                <option value="air">Air</option>
+                <option value="ert">Earth</option>
+                <option value="met">Metal</option>
+            </select>
+
+            <label for="purpose2">Purpose:</label>
+            <select id="purpose2">
+                <option value="atk">Attack</option>
+                <option value="def">Defend</option>
+                <option value="heal">Heal</option>
+                <option value="mnd">Mend</option>
+                <option value="com">Combine</option>
+            </select>
+
+            <button id="createSpell2">Cast Spell</button>
+            <div id="output2" class="output"></div>
+        </div>
+
+        <!-- Player 2 Character -->
+        <div id="player2-character" class="character idle">
+            <img src="images/player2.png" alt="Player 2" id="player2-image">
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
